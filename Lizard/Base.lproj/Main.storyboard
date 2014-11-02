@@ -79,7 +79,7 @@
         <!--Sell Spot-->
         <scene sceneID="fEB-9u-Jyq">
             <objects>
-                <viewController title="Sell Spot" id="3lH-Qh-fJW" sceneMemberID="viewController">
+                <viewController title="Sell Spot" id="3lH-Qh-fJW" customClass="SellSpotViewController" customModule="Lizard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZDb-vP-VPj"/>
                         <viewControllerLayoutGuide type="bottom" id="b3P-Xb-daQ"/>
@@ -90,6 +90,7 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-6G-wU5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <gestureRecognizers/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,8 +110,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="DropPin" destination="AHi-Im-h6K" id="rIB-JH-uh1"/>
+                        <outlet property="mapView" destination="SDb-6G-wU5" id="V7i-TU-bHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWm-MQ-qZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="AHi-Im-h6K" customClass="SellSpot" customModule="Lizard" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2808.5" y="1236.5"/>
         </scene>
