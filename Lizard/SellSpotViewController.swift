@@ -19,10 +19,6 @@ class SellSpotViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    class CustomPointAnnotation: MKPointAnnotation {
-        var imageName: String!
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,8 +31,8 @@ class SellSpotViewController: UIViewController {
         var region = MKCoordinateRegion(center: location, span: span)
         
         mapView.setRegion(region, animated: true)
-        var annotation = CustomPointAnnotation()
-        //var annotation = MKPointAnnotation()
+       
+        var annotation = MKPointAnnotation()
         annotation.setCoordinate(location)
         annotation.title = "Roatan"
         annotation.subtitle = "Honduras"
@@ -50,34 +46,52 @@ class SellSpotViewController: UIViewController {
         mapView.addGestureRecognizer(lpgr)
         
         //testing
-        var info2 = CustomPointAnnotation()
-        info2.coordinate = location
-        info2.title = "Test Title2!"
-        info2.subtitle = "Subtitle2"
-        info2.imageName = "2.png"
-        mapView.addAnnotation(info2)
+       
 
     }
     
     //testing
     
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,
-        calloutAccessoryControlTapped control: UIControl!) {
-            
-            if control == view.rightCalloutAccessoryView {
-                println("Disclosure Pressed! \(view.annotation.subtitle)")
-                
-                if let cpa = view.annotation as? CustomPointAnnotation {
-                    println("cpa.imageName = \(cpa.imageName)")
-                }
-            }
-            
+    class MapPin : NSObject, MKAnnotation {
+        var coordinate: CLLocationCoordinate2D
+        var title: String
+        var subtitle: String
+        
+        
+        init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+            self.coordinate = coordinate
+            self.title = title
+            self.subtitle = subtitle
+        }
     }
     
-
     
- //long press annotation add
-    func action(gestureRecognizer:UIGestureRecognizer) {
+    func crapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if !(annotation is MKPointAnnotation) {
+            //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
+            //return nil so map draws default view for it (eg. blue dot)...
+            return nil
+        }
+        
+        let reuseId = "test"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView.image = UIImage(named:"xaxas")
+            anView.canShowCallout = true
+        }
+        else {
+            //we are re-using a view, update its annotation reference...
+            anView.annotation = annotation
+        }
+        
+        return anView
+    }
+    
+        //long press annotation add
+    
+        func action(gestureRecognizer:UIGestureRecognizer) {
         //Remove any annotations
         if mapView.annotations.count != 0 {
             mapView.removeAnnotations(mapView.annotations)
@@ -87,15 +101,12 @@ class SellSpotViewController: UIViewController {
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         
         var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        var view: MKAnnotationView
         
-        var newAnotation = CustomPointAnnotation()
-        newAnotation.coordinate = newCoord
-        newAnotation.title = "New Location"
-        newAnotation.subtitle = "New Subtitle"
-        
-        
-        mapView.addAnnotation(newAnotation)
+            var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "subtitle")
+            
+
+            mapView.addAnnotation(info2)
+            
         
     }
     // Do any additional setup after loading the view.
