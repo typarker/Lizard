@@ -106,6 +106,7 @@ class SellSpotViewController: UIViewController {
             
 
             mapView.addAnnotation(info2)
+            var anView:MKAnnotationView! = crapView(self.mapView, viewForAnnotation: info2)
             
         
     }
