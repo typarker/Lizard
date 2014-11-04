@@ -91,6 +91,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SDb-6G-wU5">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="3lH-Qh-fJW" id="Zvg-cg-pya"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,7 +183,6 @@
         <!--Navigation Controller-->
         <scene sceneID="KOq-1v-GMB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch8-Ge-NkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eSh-dM-kfl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fh0-cB-W4L">
@@ -192,6 +194,7 @@
                         <segue destination="tvD-Ts-hF3" kind="relationship" relationship="rootViewController" id="u0w-qx-y5J"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch8-Ge-NkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3321.5" y="1236.5"/>
         </scene>

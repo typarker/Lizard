@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 
 
-class SellSpotViewController: UIViewController {
+class SellSpotViewController: UIViewController, MKMapViewDelegate{
     
   
     @IBOutlet var DropPin: SellSpot!
@@ -32,12 +32,13 @@ class SellSpotViewController: UIViewController {
         
         mapView.setRegion(region, animated: true)
        
-        var annotation = MKPointAnnotation()
-        annotation.setCoordinate(location)
-        annotation.title = "Roatan"
-        annotation.subtitle = "Honduras"
+        //var annotation = MKPointAnnotation()
+        //annotation.setCoordinate(location)
+       // annotation.title = "Roatan"
+       // annotation.subtitle = "Honduras"
         
-        mapView.addAnnotation(annotation)
+        //self.mapView.addAnnotation(annotation)
+       
         
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
         
@@ -66,20 +67,24 @@ class SellSpotViewController: UIViewController {
     }
     
     
-    func crapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if !(annotation is MKPointAnnotation) {
+    func mapView(_mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        //if !(annotation is MKPointAnnotation) {
             //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
             //return nil so map draws default view for it (eg. blue dot)...
-            return nil
-        }
+           // return nil
+       // }
         
         let reuseId = "test"
-        
+           let button : UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView.image = UIImage(named:"xaxas")
             anView.canShowCallout = true
+         
+            //button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+           anView.rightCalloutAccessoryView = button
+            
         }
         else {
             //we are re-using a view, update its annotation reference...
@@ -101,13 +106,9 @@ class SellSpotViewController: UIViewController {
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         
         var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        
-            var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "subtitle")
-            
-
-            mapView.addAnnotation(info2)
-            var anView:MKAnnotationView! = crapView(self.mapView, viewForAnnotation: info2)
-            
+        var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "poop")
+        //var anView:MKAnnotationView! = mapView(self.mapView, viewForAnnotation: info2)
+        self.mapView.addAnnotation(info2)
         
     }
     // Do any additional setup after loading the view.
