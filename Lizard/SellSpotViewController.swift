@@ -73,17 +73,21 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
             //return nil so map draws default view for it (eg. blue dot)...
            // return nil
        // }
-        
-        let reuseId = "test"
+            let price : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
+            let reuseId = "test"
            let button : UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView.image = UIImage(named:"xaxas")
             anView.canShowCallout = true
-         
-            //button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-           anView.rightCalloutAccessoryView = button
+          
+            //self.view.addSubview(myTextField)
+            anView.leftCalloutAccessoryView = price
+            
+            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            anView.rightCalloutAccessoryView = button
             
         }
         else {
