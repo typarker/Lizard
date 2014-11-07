@@ -15,9 +15,11 @@ import MapKit
 class SellSpotViewController: UIViewController, MKMapViewDelegate{
 
     @IBOutlet var DropPin: SellSpot!
-    
-    
+    @IBOutlet var textbox : UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    var price: String = ""
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +61,12 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         var subtitle: String
         
         
+        
         init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
             self.coordinate = coordinate
             self.title = title
             self.subtitle = subtitle
+            
         }
     }
     
@@ -73,7 +77,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
             //return nil so map draws default view for it (eg. blue dot)...
            // return nil
        // }
-            let price : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
+            let textbox : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
+            textbox.text = "blah"
             let reuseId = "test"
            let button : UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
@@ -83,11 +88,13 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
             anView.canShowCallout = true
           
             
-            anView.leftCalloutAccessoryView = price
-            anView.rightCalloutAccessoryView = button
-            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-           
+            anView.leftCalloutAccessoryView = textbox
             
+            price = self.textbox.text
+            anView.rightCalloutAccessoryView = button
+          
+            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+          
             
         }
         else {
@@ -110,7 +117,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         
         var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-        var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "poop")
+            var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "poop")
         //var anView:MKAnnotationView! = mapView(self.mapView, viewForAnnotation: info2)
         self.mapView.addAnnotation(info2)
         
@@ -119,9 +126,11 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     
     
     func buttonClicked(sender: UIButton!) {
-     println("fuck yeah mother fucker")
+        
+     println(textbox.text)
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
