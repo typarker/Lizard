@@ -19,6 +19,11 @@
 		A00C6E2C1A054940001CDD93 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00C6E2B1A054940001CDD93 /* CoreLocation.framework */; };
 		A00C6E611A05BE53001CDD93 /* SellSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C6E601A05BE53001CDD93 /* SellSpotViewController.swift */; };
 		A00C6E671A05CCA2001CDD93 /* SellSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C6E661A05CCA2001CDD93 /* SellSpot.swift */; };
+		A04E8E481A0B29AD002BE0B2 /* Lots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8E471A0B29AD002BE0B2 /* Lots.swift */; };
+		A04E8E4A1A0C7085002BE0B2 /* redPin.png in Resources */ = {isa = PBXBuildFile; fileRef = A04E8E491A0C7085002BE0B2 /* redPin.png */; };
+		A0F349441A0B26AC00404C63 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349431A0B26AC00404C63 /* Realm.framework */; };
+		A0F349461A0B26EE00404C63 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349451A0B26EE00404C63 /* libc++.dylib */; };
+		A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F349471A0B270200404C63 /* RLMSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		A00C6E2B1A054940001CDD93 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A00C6E601A05BE53001CDD93 /* SellSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellSpotViewController.swift; sourceTree = "<group>"; };
 		A00C6E661A05CCA2001CDD93 /* SellSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SellSpot.swift; path = ../SellSpot.swift; sourceTree = "<group>"; };
+		A04E8E471A0B29AD002BE0B2 /* Lots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lots.swift; sourceTree = "<group>"; };
+		A04E8E491A0C7085002BE0B2 /* redPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPin.png; sourceTree = SOURCE_ROOT; };
+		A0F349431A0B26AC00404C63 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A0F349451A0B26EE00404C63 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		A0F349471A0B270200404C63 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMSupport.swift; path = "../../realm-cocoa-0.87.2/Swift/RLMSupport.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F349461A0B26EE00404C63 /* libc++.dylib in Frameworks */,
+				A0F349441A0B26AC00404C63 /* Realm.framework in Frameworks */,
 				A00C6E2C1A054940001CDD93 /* CoreLocation.framework in Frameworks */,
 				A00C6E2A1A047552001CDD93 /* MapKit.framework in Frameworks */,
 			);
@@ -73,11 +85,14 @@
 		A00C6DF61A0474BC001CDD93 = {
 			isa = PBXGroup;
 			children = (
+				A0F349451A0B26EE00404C63 /* libc++.dylib */,
+				A0F349431A0B26AC00404C63 /* Realm.framework */,
 				A00C6E2B1A054940001CDD93 /* CoreLocation.framework */,
 				A00C6E291A047552001CDD93 /* MapKit.framework */,
 				A00C6E011A0474BC001CDD93 /* Lizard */,
 				A00C6E1C1A0474BC001CDD93 /* LizardTests */,
 				A00C6E001A0474BC001CDD93 /* Products */,
+				A04E8E471A0B29AD002BE0B2 /* Lots.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,7 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				A00C6E041A0474BC001CDD93 /* AppDelegate.swift */,
+				A04E8E491A0C7085002BE0B2 /* redPin.png */,
 				A00C6E661A05CCA2001CDD93 /* SellSpot.swift */,
+				A0F349471A0B270200404C63 /* RLMSupport.swift */,
 				A00C6E091A0474BC001CDD93 /* MasterViewController.swift */,
 				A00C6E0B1A0474BC001CDD93 /* DetailViewController.swift */,
 				A00C6E0D1A0474BC001CDD93 /* Main.storyboard */,
@@ -220,6 +237,7 @@
 				A00C6E0F1A0474BC001CDD93 /* Main.storyboard in Resources */,
 				A00C6E141A0474BC001CDD93 /* LaunchScreen.xib in Resources */,
 				A00C6E111A0474BC001CDD93 /* Images.xcassets in Resources */,
+				A04E8E4A1A0C7085002BE0B2 /* redPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,9 +257,11 @@
 			files = (
 				A00C6E051A0474BC001CDD93 /* AppDelegate.swift in Sources */,
 				A00C6E081A0474BC001CDD93 /* Lizard.xcdatamodeld in Sources */,
+				A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */,
 				A00C6E0A1A0474BC001CDD93 /* MasterViewController.swift in Sources */,
 				A00C6E671A05CCA2001CDD93 /* SellSpot.swift in Sources */,
 				A00C6E611A05BE53001CDD93 /* SellSpotViewController.swift in Sources */,
+				A04E8E481A0B29AD002BE0B2 /* Lots.swift in Sources */,
 				A00C6E0C1A0474BC001CDD93 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,9 +385,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/typarker/Desktop/realm-cocoa-0.87.2/ios",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Lizard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lizard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -375,9 +403,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/typarker/Desktop/realm-cocoa-0.87.2/ios",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Lizard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lizard-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -434,6 +469,7 @@
 				A00C6E251A0474BC001CDD93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A00C6E261A0474BC001CDD93 /* Build configuration list for PBXNativeTarget "LizardTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +478,7 @@
 				A00C6E281A0474BC001CDD93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

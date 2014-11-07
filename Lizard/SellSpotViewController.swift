@@ -13,9 +13,9 @@ import MapKit
 
 
 class SellSpotViewController: UIViewController, MKMapViewDelegate{
-    
-  
+
     @IBOutlet var DropPin: SellSpot!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -79,15 +79,15 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            anView.image = UIImage(named:"xaxas")
+            anView.image = UIImage(named:"redPin.png")
             anView.canShowCallout = true
           
-            //self.view.addSubview(myTextField)
+            
             anView.leftCalloutAccessoryView = price
-            
-            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-            
             anView.rightCalloutAccessoryView = button
+            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+           
+            
             
         }
         else {
@@ -118,6 +118,10 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     // Do any additional setup after loading the view.
     
     
+    func buttonClicked(sender: UIButton!) {
+     println("fuck yeah mother fucker")
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
