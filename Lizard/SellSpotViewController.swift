@@ -55,7 +55,9 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "goToAddLot"{
-           
+            var newProjectVC:AddLotViewController = AddLotViewController()
+             newProjectVC = segue.destinationViewController as AddLotViewController
+            newProjectVC.latitude = "poopy"
         }
     }
    

@@ -108,7 +108,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lgY-b7-gbk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZfI-yv-f0x">
                             <connections>
-                                <segue destination="CZ1-1k-3Wj" kind="show" identifier="goToAddLot" id="QGp-tn-Hbd"/>
+                                <segue destination="bON-6n-Br0" kind="show" identifier="goToAddLot" id="zpY-RH-8CY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -162,8 +162,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lck-HU-SYf">
-                                <rect key="frame" x="181" y="149" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-0Z-hVo">
+                                <rect key="frame" x="120" y="162" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -172,10 +172,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IUr-uW-Lp0"/>
+                    <connections>
+                        <outlet property="colorLabel" destination="Uz1-0Z-hVo" id="BDm-Pd-lw7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dov-iS-rCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4047.5" y="1187.5"/>
+            <point key="canvasLocation" x="3371" y="1237"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tzf-gv-iuM">
@@ -232,24 +235,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc7-od-eLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1157" y="834"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Xxl-YG-mGY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CZ1-1k-3Wj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="44H-Ov-FOW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bON-6n-Br0" kind="relationship" relationship="rootViewController" id="Liv-8I-oIn"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3bD-Zg-qH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3460.5" y="1187.5"/>
         </scene>
     </scenes>
 </document>

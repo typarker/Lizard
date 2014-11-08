@@ -8,19 +8,23 @@
 
 import UIKit
 
-class AddLotViewController: UIViewController {
 
+class AddLotViewController: UIViewController {
+    
+    @IBOutlet weak var colorLabel: UILabel!
+    
+    var latitude:NSString!
+ 
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        colorLabel.text = latitude
+        println(self.latitude)
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
 
     /*
     // MARK: - Navigation
@@ -32,4 +36,3 @@ class AddLotViewController: UIViewController {
     }
     */
 
-}
