@@ -18,9 +18,10 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     //@IBOutlet var textbox : UITextField!
     @IBOutlet weak var mapView: MKMapView!
     //var price: String = ""
-    
-
-    
+    var coordToPass = CLLocationCoordinate2D(
+        latitude: 0,
+        longitude: 0
+    )
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +58,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         if segue.identifier == "goToAddLot"{
             var newProjectVC:AddLotViewController = AddLotViewController()
              newProjectVC = segue.destinationViewController as AddLotViewController
-            newProjectVC.latitude = "poopy"
+            newProjectVC.latitude = self.coordToPass.latitude
+            newProjectVC.longitude = self.coordToPass.longitude
         }
     }
    
@@ -128,6 +130,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
             var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "poop")
         //var anView:MKAnnotationView! = mapView(self.mapView, viewForAnnotation: info2)
         self.mapView.addAnnotation(info2)
+            coordToPass=newCoord
         
     }
     // Do any additional setup after loading the view.

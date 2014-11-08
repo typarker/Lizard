@@ -13,14 +13,16 @@ class AddLotViewController: UIViewController {
     
     @IBOutlet weak var colorLabel: UILabel!
     
-    var latitude:NSString!
+    var latitude:Double!
+    var longitude:Double!
  
   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        colorLabel.text = latitude
+        //colorLabel.text = latitude
         println(self.latitude)
+        println(self.longitude)
     }
 }
 
