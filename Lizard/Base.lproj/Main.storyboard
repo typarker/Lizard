@@ -48,7 +48,7 @@
         <!--Buy Spot-->
         <scene sceneID="YXk-wn-UCT">
             <objects>
-                <viewController title="Buy Spot" id="uaM-Rr-nZr" sceneMemberID="viewController">
+                <viewController title="Buy Spot" id="uaM-Rr-nZr" customClass="BuySpotViewController" customModule="Lizard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ded-uZ-wkK"/>
                         <viewControllerLayoutGuide type="bottom" id="KoN-y9-0jo"/>
@@ -162,18 +162,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-0Z-hVo">
-                                <rect key="frame" x="120" y="162" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uz1-0Z-hVo">
+                                <rect key="frame" x="116" y="115" width="40" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAn-a8-j6a">
+                                <rect key="frame" x="164" y="220" width="62" height="30"/>
+                                <state key="normal" title="Sell Spot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sellSpot:" destination="bON-6n-Br0" eventType="touchUpInside" id="GeZ-f7-uEk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-jG-g05">
+                                <rect key="frame" x="196" y="106" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="IUr-uW-Lp0"/>
                     <connections>
                         <outlet property="colorLabel" destination="Uz1-0Z-hVo" id="BDm-Pd-lw7"/>
+                        <outlet property="price" destination="oLI-jG-g05" id="CeR-g2-ol6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dov-iS-rCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
