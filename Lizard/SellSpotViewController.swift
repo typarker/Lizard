@@ -15,9 +15,9 @@ import MapKit
 class SellSpotViewController: UIViewController, MKMapViewDelegate{
 
     @IBOutlet var DropPin: SellSpot!
-    @IBOutlet var textbox : UITextField!
+    //@IBOutlet var textbox : UITextField!
     @IBOutlet weak var mapView: MKMapView!
-    var price: String = ""
+    //var price: String = ""
     
 
     
@@ -48,12 +48,17 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         
         mapView.addGestureRecognizer(lpgr)
         
-        //testing
+        
        
 
     }
     
-    //testing
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "goToAddLot"{
+           
+        }
+    }
+   
     
     class MapPin : NSObject, MKAnnotation {
         var coordinate: CLLocationCoordinate2D
@@ -71,16 +76,17 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     }
     
     
+    
     func mapView(_mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         //if !(annotation is MKPointAnnotation) {
             //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
             //return nil so map draws default view for it (eg. blue dot)...
            // return nil
        // }
-            let textbox : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
-            textbox.text = "blah"
+            //let textbox : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
+            //textbox.text = "blah"
             let reuseId = "test"
-           let button : UIButton = UIButton.buttonWithType(UIButtonType.DetailDisclosure) as UIButton
+           let button : UIButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
@@ -88,9 +94,9 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
             anView.canShowCallout = true
           
             
-            anView.leftCalloutAccessoryView = textbox
+            //anView.leftCalloutAccessoryView = textbox
             
-            price = self.textbox.text
+            //price = self.textbox.text
             anView.rightCalloutAccessoryView = button
           
             button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -127,7 +133,10 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     
     func buttonClicked(sender: UIButton!) {
         
-     println(textbox.text)
+        //let secondViewController:AddLotViewController = AddLotViewController()
+        
+        //self.presentViewController(secondViewController, animated: true, completion: nil)
+        performSegueWithIdentifier("goToAddLot", sender: sender)
         
     }
     

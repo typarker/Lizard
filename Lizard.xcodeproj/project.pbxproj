@@ -21,6 +21,7 @@
 		A00C6E671A05CCA2001CDD93 /* SellSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C6E661A05CCA2001CDD93 /* SellSpot.swift */; };
 		A04E8E481A0B29AD002BE0B2 /* Lots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8E471A0B29AD002BE0B2 /* Lots.swift */; };
 		A04E8E4A1A0C7085002BE0B2 /* redPin.png in Resources */ = {isa = PBXBuildFile; fileRef = A04E8E491A0C7085002BE0B2 /* redPin.png */; };
+		A04E8E4E1A0E71AB002BE0B2 /* AddLotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */; };
 		A0F349441A0B26AC00404C63 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349431A0B26AC00404C63 /* Realm.framework */; };
 		A0F349461A0B26EE00404C63 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349451A0B26EE00404C63 /* libc++.dylib */; };
 		A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F349471A0B270200404C63 /* RLMSupport.swift */; };
@@ -55,6 +56,7 @@
 		A00C6E661A05CCA2001CDD93 /* SellSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SellSpot.swift; path = ../SellSpot.swift; sourceTree = "<group>"; };
 		A04E8E471A0B29AD002BE0B2 /* Lots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lots.swift; sourceTree = "<group>"; };
 		A04E8E491A0C7085002BE0B2 /* redPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPin.png; sourceTree = SOURCE_ROOT; };
+		A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLotViewController.swift; sourceTree = "<group>"; };
 		A0F349431A0B26AC00404C63 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A0F349451A0B26EE00404C63 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		A0F349471A0B270200404C63 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMSupport.swift; path = "../../realm-cocoa-0.87.2/Swift/RLMSupport.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				A00C6E091A0474BC001CDD93 /* MasterViewController.swift */,
 				A00C6E0B1A0474BC001CDD93 /* DetailViewController.swift */,
 				A00C6E0D1A0474BC001CDD93 /* Main.storyboard */,
+				A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */,
 				A00C6E601A05BE53001CDD93 /* SellSpotViewController.swift */,
 				A00C6E101A0474BC001CDD93 /* Images.xcassets */,
 				A00C6E121A0474BC001CDD93 /* LaunchScreen.xib */,
@@ -260,6 +263,7 @@
 				A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */,
 				A00C6E0A1A0474BC001CDD93 /* MasterViewController.swift in Sources */,
 				A00C6E671A05CCA2001CDD93 /* SellSpot.swift in Sources */,
+				A04E8E4E1A0E71AB002BE0B2 /* AddLotViewController.swift in Sources */,
 				A00C6E611A05BE53001CDD93 /* SellSpotViewController.swift in Sources */,
 				A04E8E481A0B29AD002BE0B2 /* Lots.swift in Sources */,
 				A00C6E0C1A0474BC001CDD93 /* DetailViewController.swift in Sources */,
