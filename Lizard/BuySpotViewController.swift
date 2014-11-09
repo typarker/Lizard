@@ -10,16 +10,41 @@ import UIKit
 import MapKit
 import Realm
 
-
 class BuySpotViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    
+    let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+    //let petsRealm = RLMRealm.realmWithPath("pets.realm")
+    //let otherDogs = Dog.allObjectsInRealm(petsRealm)
+    let lots = Lot.allObjects()
+    
+    //var lots = RLMArray(objectClassName: Lot.className())
+    func populateMap(){
+
+        mapView.removeAnnotations(mapView.annotations) // 1
+        
+        //var lots = Lots.allObjects()  // 2
+        //println(lots)
+        // Create annotations for each one
+        for lot in lots {
+            let aLot = lot as Lot
+            let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
+            let lotAnnotation = LotAnnotation(coordinate: coord, title: aLot.price, subtitle: "poop", lot: aLot) // 3
+            mapView.addAnnotation(lotAnnotation) // 4
+            
+        }
+        
+   
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
-        var results = Lot.allObjects()
         
-        //println(results)
+        
+        
+        println(lots)
+        
         // 1
         let location = CLLocationCoordinate2D(
             latitude: 29.6520,
@@ -29,22 +54,9 @@ class BuySpotViewController: UIViewController {
         let span = MKCoordinateSpanMake(0.025, 0.025)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
-       
         
-        for var index = 0; index < 5; ++index {
-            let annotation = MKPointAnnotation()
-            var loc = CLLocationCoordinate2D(
-                latitude: [index]Lot.latitude,
-                longitude: Lot.longitude
-                )
-            annotation.setCoordinate(location)
-            annotation.title = Lot.price
-            annotation.subtitle = "Dollars"
-            mapView.addAnnotation(annotation)
-            
-        }
-     
-    
+        populateMap()
+        
 
         // Do any additional setup after loading the view.
     }
