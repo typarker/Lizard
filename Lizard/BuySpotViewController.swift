@@ -16,14 +16,14 @@ class BuySpotViewController: UIViewController {
     let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
     //let petsRealm = RLMRealm.realmWithPath("pets.realm")
     //let otherDogs = Dog.allObjectsInRealm(petsRealm)
-    let lots = Lot.allObjects()
+    //let lots = Lot.allObjectsInRealm(realm)
+    
     
     //var lots = RLMArray(objectClassName: Lot.className())
     func populateMap(){
-
+        println(realm.path)
         mapView.removeAnnotations(mapView.annotations) // 1
-        
-        //var lots = Lots.allObjects()  // 2
+        let lots = Lot.allObjectsInRealm(realm)        //var lots = Lots.allObjects()  // 2
         //println(lots)
         // Create annotations for each one
         for lot in lots {
@@ -43,7 +43,7 @@ class BuySpotViewController: UIViewController {
         
         
         
-        println(lots)
+       
         
         // 1
         let location = CLLocationCoordinate2D(
