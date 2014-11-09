@@ -105,7 +105,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Your Spot" id="QnZ-py-CJB">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lgY-b7-gbk"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZfI-yv-f0x">
                             <connections>
                                 <segue destination="bON-6n-Br0" kind="show" identifier="goToAddLot" id="zpY-RH-8CY"/>

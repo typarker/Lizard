@@ -32,11 +32,12 @@ class AddLotViewController: UIViewController {
         myLot.latitude = self.latitude
         myLot.longitude = self.longitude
         
-        println(RLMRealm.defaultRealm().path)
+        
         
         // Realms are used to group data together
-        let realm = RLMRealm.defaultRealm() // Create realm pointing to default file
-        
+        //let realm = RLMRealm.defaultRealm() // Create realm pointing to default file
+        let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+        println(realm.path)
         // Save your object
         realm.beginWriteTransaction()
         realm.addObject(myLot)
