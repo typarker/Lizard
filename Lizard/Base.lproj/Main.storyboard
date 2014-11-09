@@ -59,6 +59,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x1l-Vb-vTu">
                                 <rect key="frame" x="-6" y="64" width="381" height="558"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uaM-Rr-nZr" id="PXQ-EI-QzG"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -71,6 +74,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bmg-GH-jCc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="x1l-Vb-vTu" id="Jhg-k6-dmG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDT-j0-4NK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

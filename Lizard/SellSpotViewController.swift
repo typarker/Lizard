@@ -34,13 +34,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         var region = MKCoordinateRegion(center: location, span: span)
         
         mapView.setRegion(region, animated: true)
-       
-        //var annotation = MKPointAnnotation()
-        //annotation.setCoordinate(location)
-       // annotation.title = "Roatan"
-       // annotation.subtitle = "Honduras"
-        
-        //self.mapView.addAnnotation(annotation)
+   
        
         
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
