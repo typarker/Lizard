@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x1l-Vb-vTu">
-                                <rect key="frame" x="-6" y="64" width="381" height="558"/>
+                                <rect key="frame" x="-6" y="64" width="381" height="603"/>
                                 <connections>
                                     <outlet property="delegate" destination="uaM-Rr-nZr" id="PXQ-EI-QzG"/>
                                 </connections>
@@ -69,7 +69,7 @@
                             <constraint firstItem="x1l-Vb-vTu" firstAttribute="top" secondItem="ded-uZ-wkK" secondAttribute="bottom" id="Bns-hp-3F5"/>
                             <constraint firstAttribute="trailing" secondItem="x1l-Vb-vTu" secondAttribute="trailing" id="GE4-GY-6Yo"/>
                             <constraint firstItem="x1l-Vb-vTu" firstAttribute="leading" secondItem="BF1-oM-scc" secondAttribute="leadingMargin" constant="-22" id="ITP-rC-aEp"/>
-                            <constraint firstItem="KoN-y9-0jo" firstAttribute="top" secondItem="x1l-Vb-vTu" secondAttribute="bottom" constant="45" id="XAM-Fn-s20"/>
+                            <constraint firstItem="KoN-y9-0jo" firstAttribute="top" secondItem="x1l-Vb-vTu" secondAttribute="bottom" id="XAM-Fn-s20"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bmg-GH-jCc"/>
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDT-j0-4NK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2832.5" y="487.5"/>
+            <point key="canvasLocation" x="2808.5" y="487.5"/>
         </scene>
         <!--Sell Spot-->
         <scene sceneID="fEB-9u-Jyq">
@@ -180,6 +180,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sellSpot:" destination="bON-6n-Br0" eventType="touchUpInside" id="GeZ-f7-uEk"/>
+                                    <segue destination="h1r-lJ-0zR" kind="show" id="ujT-ZJ-08r"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-jG-g05">
@@ -198,7 +199,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dov-iS-rCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3371" y="1237"/>
+            <point key="canvasLocation" x="3270.5" y="1236.5"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="tzt-oS-BHK">
+            <objects>
+                <viewController id="h1r-lJ-0zR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WVX-Ar-gz4"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Hl-Zr-sDg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j7A-Yj-bS7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank You!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBw-JF-6OQ">
+                                <rect key="frame" x="145" y="156" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Cmh-p9-6G3"/>
+                        <barButtonItem title="Item" id="7BR-A8-Adt"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="WNf-xf-POu">
+                        <barButtonItem key="leftBarButtonItem" title="Map" id="9gL-WM-eLQ"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPe-DO-yC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3712.5" y="1236.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tzf-gv-iuM">

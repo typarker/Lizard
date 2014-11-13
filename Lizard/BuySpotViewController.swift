@@ -29,7 +29,7 @@ class BuySpotViewController: UIViewController {
         for lot in lots {
             let aLot = lot as Lot
             let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
-            let lotAnnotation = LotAnnotation(coordinate: coord, title: aLot.price, subtitle: "poop", lot: aLot) // 3
+            let lotAnnotation = LotAnnotation(coordinate: coord, title: aLot.price, subtitle: "Dollars", lot: aLot) // 3
             mapView.addAnnotation(lotAnnotation) // 4
             
         }
@@ -37,6 +37,8 @@ class BuySpotViewController: UIViewController {
    
 
     }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
