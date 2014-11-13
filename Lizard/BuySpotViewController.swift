@@ -38,7 +38,48 @@ class BuySpotViewController: UIViewController {
 
     }
     
+    func mapView(_mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        //if !(annotation is MKPointAnnotation) {
+        //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
+        //return nil so map draws default view for it (eg. blue dot)...
+        // return nil
+        // }
+        //let textbox : UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 200.00, height: 40.00));
+        //textbox.text = "blah"
+        let reuseId = "test"
+        let button : UIButton = UIButton.buttonWithType(UIButtonType.ContactAdd) as UIButton
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView.image = UIImage(named:"redPin.png")
+            anView.canShowCallout = true
+            
+            
+            //anView.leftCalloutAccessoryView = textbox
+            
+            //price = self.textbox.text
+            anView.rightCalloutAccessoryView = button
+            
+            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            
+        }
+        else {
+            //we are re-using a view, update its annotation reference...
+            anView.annotation = annotation
+        }
+        
+        return anView
+    }
     
+    func buttonClicked(sender: UIButton!) {
+        
+        //let secondViewController:AddLotViewController = AddLotViewController()
+        
+        //self.presentViewController(secondViewController, animated: true, completion: nil)
+        performSegueWithIdentifier("buySpot", sender: sender)
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

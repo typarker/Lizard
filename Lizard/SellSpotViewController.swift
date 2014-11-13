@@ -121,7 +121,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         var touchPoint = gestureRecognizer.locationInView(self.mapView)
         
         var newCoord:CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: self.mapView)
-            var info2 = MapPin(coordinate: newCoord,title: "title",subtitle: "Dollars")
+            var info2 = MapPin(coordinate: newCoord,title: "Your Yard",subtitle: "")
         //var anView:MKAnnotationView! = mapView(self.mapView, viewForAnnotation: info2)
         self.mapView.addAnnotation(info2)
             coordToPass=newCoord
