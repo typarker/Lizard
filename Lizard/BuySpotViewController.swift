@@ -29,12 +29,12 @@ class BuySpotViewController: UIViewController {
         for lot in lots {
             let aLot = lot as Lot
             let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
-            let lotAnnotation = LotAnnotation(coordinate: coord, title: aLot.price, subtitle: "Dollars", lot: aLot) // 3
+            let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.spots), subtitle: "Dollars", lot: aLot) // 3
             mapView.addAnnotation(lotAnnotation) // 4
             
         }
         
-   
+   println(lots)
 
     }
     
@@ -74,9 +74,19 @@ class BuySpotViewController: UIViewController {
     
     func buttonClicked(sender: UIButton!) {
         
-        //let secondViewController:AddLotViewController = AddLotViewController()
-        
-        //self.presentViewController(secondViewController, animated: true, completion: nil)
+        let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+       
+        // Find objects
+        //var localTypes = Lot.objectsWhere("id = 6879")
+        var lots = Lot.allObjectsInRealm(realm)
+        // Update one of those objects
+        println(lots)
+        realm.beginWriteTransaction()
+        var existingForm = lots[0] as Lot
+        existingForm.spots = existingForm.spots-1
+        // Wrap up transaction
+        realm.commitWriteTransaction()
+
         performSegueWithIdentifier("buySpot", sender: sender)
         
     }
