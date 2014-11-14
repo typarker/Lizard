@@ -10,9 +10,13 @@ import UIKit
 import Realm
 
 class Lot: RLMObject {
-    dynamic var spots = ""
+    dynamic var id = Int(arc4random_uniform(10000))
+    dynamic var spots = Int(1)
     dynamic var price = ""
     dynamic var latitude: Double = 0.0
     dynamic var longitude: Double = 0.0
     dynamic var created = NSDate()
+    override class func primaryKey() -> String {
+        return "id"
+    }
 }

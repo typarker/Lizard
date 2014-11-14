@@ -9,13 +9,7 @@
 import UIKit
 import Realm
 
-class lot: RLMObject {
-    dynamic var spots = ""
-    dynamic var price = ""
-    dynamic var latitude: Double = 0.0
-    dynamic var longitude: Double = 0.0
-    dynamic var created = NSDate()
-}
+
 
 
 class AddLotViewController: UIViewController {
