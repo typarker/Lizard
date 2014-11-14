@@ -21,20 +21,21 @@ class BuySpotViewController: UIViewController {
     
     //var lots = RLMArray(objectClassName: Lot.className())
     func populateMap(){
-        println(realm.path)
         mapView.removeAnnotations(mapView.annotations) // 1
-        let lots = Lot.allObjectsInRealm(realm)        //var lots = Lots.allObjects()  // 2
+        let lots = Lot.allObjectsInRealm(realm)
+        var lotWithSpot = lots.objectsWhere("spots > 0")
+        
         //println(lots)
         // Create annotations for each one
-        for lot in lots {
+        for lot in lotWithSpot {
             let aLot = lot as Lot
             let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
-            let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.spots), subtitle: "Dollars", lot: aLot) // 3
+            let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.price), subtitle: "Dollars", lot: aLot, id: aLot.id) // 3
             mapView.addAnnotation(lotAnnotation) // 4
             
         }
         
-   println(lots)
+   println(lotWithSpot)
 
     }
     
@@ -75,14 +76,25 @@ class BuySpotViewController: UIViewController {
     func buttonClicked(sender: UIButton!) {
         
         let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+        
        
         // Find objects
         //var localTypes = Lot.objectsWhere("id = 6879")
         var lots = Lot.allObjectsInRealm(realm)
-        // Update one of those objects
-        println(lots)
+        var lotWithID = lots.objectsWhere("id = 6879")
+        
+        // Get info about currently selected annotation
+        if self.mapView.selectedAnnotations?.count == 0 {
+            //no annotation selected
+            return;
+        }
+        
+        if let ann = self.mapView.selectedAnnotations[0] as? LotAnnotation {
+            println(ann.id)
+        }
+        println(mapView.selectedAnnotations)
         realm.beginWriteTransaction()
-        var existingForm = lots[0] as Lot
+        var existingForm = lotWithID[0] as Lot
         existingForm.spots = existingForm.spots-1
         // Wrap up transaction
         realm.commitWriteTransaction()
