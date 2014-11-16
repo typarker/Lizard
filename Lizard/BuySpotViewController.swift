@@ -78,21 +78,18 @@ class BuySpotViewController: UIViewController {
         let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
         
        
+
+        
+        // Get info about currently selected annotation
+       let ann = self.mapView.selectedAnnotations[0] as LotAnnotation
         // Find objects
         //var localTypes = Lot.objectsWhere("id = 6879")
         var lots = Lot.allObjectsInRealm(realm)
-        var lotWithID = lots.objectsWhere("id = 6879")
         
-        // Get info about currently selected annotation
-        if self.mapView.selectedAnnotations?.count == 0 {
-            //no annotation selected
-            return;
-        }
+        let resultPredicate = NSPredicate(format: "id = %i", ann.id)
         
-        if let ann = self.mapView.selectedAnnotations[0] as? LotAnnotation {
-            println(ann.id)
-        }
-        println(mapView.selectedAnnotations)
+        var lotWithID = lots.objectsWithPredicate(resultPredicate)
+        
         realm.beginWriteTransaction()
         var existingForm = lotWithID[0] as Lot
         existingForm.spots = existingForm.spots-1
