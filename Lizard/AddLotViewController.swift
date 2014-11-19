@@ -36,6 +36,20 @@ class AddLotViewController: UIViewController {
         realm.beginWriteTransaction()
         realm.addObject(myLot)
         realm.commitWriteTransaction()
+        
+        
+        var gameScore = PFObject(className: "GameScore")
+        gameScore.setObject(1337, forKey: "score")
+        gameScore.setObject("Sean Plott", forKey: "playerName")
+        gameScore.saveInBackgroundWithBlock {
+            (success: Bool!, error: NSError!) -> Void in
+            if true {
+                NSLog("Object created with id: \(gameScore.objectId)")
+            } else {
+                NSLog("%@", error)
+            }
+        }
+        
     }
     
     var latitude:Double!
