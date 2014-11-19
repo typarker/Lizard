@@ -8,8 +8,8 @@
 
 import UIKit
 import Realm
-
-class Lot: RLMObject {
+class Lot: RLMObject{
+//class Lot: PFObject {
     dynamic var id = Int(arc4random_uniform(10000))
     dynamic var spots = Int(1)
     dynamic var price = ""

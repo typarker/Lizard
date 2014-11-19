@@ -27,24 +27,25 @@ class AddLotViewController: UIViewController {
         myLot.longitude = self.longitude
         
         
+        //Write to realm
         
         // Realms are used to group data together
         //let realm = RLMRealm.defaultRealm() // Create realm pointing to default file
-        let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+        /*let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
         println(realm.path)
         // Save your object
         realm.beginWriteTransaction()
         realm.addObject(myLot)
-        realm.commitWriteTransaction()
+        realm.commitWriteTransaction()*/
         
         
-        var gameScore = PFObject(className: "GameScore")
-        gameScore.setObject(1337, forKey: "score")
-        gameScore.setObject("Sean Plott", forKey: "playerName")
-        gameScore.saveInBackgroundWithBlock {
+        var myLotParse = PFObject(className: "myLotParse")
+        myLotParse.setObject(self.latitude, forKey: "latitude")
+        myLotParse.setObject(self.longitude, forKey: "longitude")
+        myLotParse.saveInBackgroundWithBlock {
             (success: Bool!, error: NSError!) -> Void in
             if true {
-                NSLog("Object created with id: \(gameScore.objectId)")
+                NSLog("Object created with id: \(myLotParse.objectId)")
             } else {
                 NSLog("%@", error)
             }

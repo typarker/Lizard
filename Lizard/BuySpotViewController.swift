@@ -13,6 +13,11 @@ import Realm
 class BuySpotViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
+    
+    
+    
+    
+    
     let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
     //let petsRealm = RLMRealm.realmWithPath("pets.realm")
     //let otherDogs = Dog.allObjectsInRealm(petsRealm)
@@ -24,6 +29,7 @@ class BuySpotViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations) // 1
         let lots = Lot.allObjectsInRealm(realm)
         var lotWithSpot = lots.objectsWhere("spots > 0")
+        
         
         //println(lots)
         // Create annotations for each one
