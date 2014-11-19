@@ -161,8 +161,8 @@
 				A00C6E041A0474BC001CDD93 /* AppDelegate.swift */,
 				A04E8E571A0F9E95002BE0B2 /* LotAnnotation.swift */,
 				A04E8E491A0C7085002BE0B2 /* redPin.png */,
-				A05E57881A1C2E4D0065F166 /* Lizard-Bridging-Header.h */,
 				A00C6E661A05CCA2001CDD93 /* SellSpot.swift */,
+				A05E57881A1C2E4D0065F166 /* Lizard-Bridging-Header.h */,
 				A0F349471A0B270200404C63 /* RLMSupport.swift */,
 				A00C6E091A0474BC001CDD93 /* MasterViewController.swift */,
 				A00C6E0B1A0474BC001CDD93 /* DetailViewController.swift */,
@@ -453,7 +453,7 @@
 				INFOPLIST_FILE = Lizard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Lizard-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lizard/Lizard-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -472,7 +472,7 @@
 				INFOPLIST_FILE = Lizard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Lizard-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lizard/Lizard-Bridging-Header.h";
 			};
 			name = Release;
 		};
