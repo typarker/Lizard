@@ -17,23 +17,44 @@ class BuySpotViewController: UIViewController {
     
     
     
-    
+    //set Realm
     let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
-    //let petsRealm = RLMRealm.realmWithPath("pets.realm")
-    //let otherDogs = Dog.allObjectsInRealm(petsRealm)
-    //let lots = Lot.allObjectsInRealm(realm)
     
     
-    //var lots = RLMArray(objectClassName: Lot.className())
+    //add annotations to map
     func populateMap(){
         mapView.removeAnnotations(mapView.annotations) // 1
         let lots = Lot.allObjectsInRealm(realm)
         var lotWithSpot = lots.objectsWhere("spots > 0")
         
         
+        var query = PFQuery(className:"myLotParse")
+        query.whereKey("spots", greaterThan: 0)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // The find succeeded.
+                NSLog("Successfully retrieved \(objects.count) spots.")
+                // Do something with the found objects
+                for object in objects {
+                    NSLog("%@", object.objectId)
+                    let latitude = object["latitude"] as Double
+                    let longitude = object["longitude"] as Double
+                    let price = object["price"] as String
+                    let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars") // 3
+                    self.mapView.addAnnotation(lotAnnotation) // 4
+                   
+                }
+            } else {
+                // Log details of the failure
+                NSLog("Error: %@ %@", error, error.userInfo!)
+            }
+        }
+        
         //println(lots)
         // Create annotations for each one
-        for lot in lotWithSpot {
+        /*for lot in lotWithSpot {
             let aLot = lot as Lot
             let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
             let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.price), subtitle: "Dollars", lot: aLot, id: aLot.id) // 3
@@ -42,7 +63,7 @@ class BuySpotViewController: UIViewController {
         }
         
    println(lotWithSpot)
-
+*/
     }
     
     func mapView(_mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
@@ -81,7 +102,7 @@ class BuySpotViewController: UIViewController {
     
     func buttonClicked(sender: UIButton!) {
         
-        let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+       /* let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
         
        
 
@@ -101,6 +122,7 @@ class BuySpotViewController: UIViewController {
         existingForm.spots = existingForm.spots-1
         // Wrap up transaction
         realm.commitWriteTransaction()
+*/
 
         performSegueWithIdentifier("buySpot", sender: sender)
         
