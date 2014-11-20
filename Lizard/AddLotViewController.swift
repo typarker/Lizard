@@ -39,9 +39,11 @@ class AddLotViewController: UIViewController {
         realm.commitWriteTransaction()*/
         
         
-        var myLotParse = PFObject(className: "myLotParse")
+        var myLotParse = PFObject(className: "MyLotParse")
         myLotParse.setObject(self.latitude, forKey: "latitude")
         myLotParse.setObject(self.longitude, forKey: "longitude")
+        myLotParse.setObject(1, forKey: "spots")
+        myLotParse.setObject(self.price.text, forKey: "price")
         myLotParse.saveInBackgroundWithBlock {
             (success: Bool!, error: NSError!) -> Void in
             if true {

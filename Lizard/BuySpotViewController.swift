@@ -28,7 +28,7 @@ class BuySpotViewController: UIViewController {
         var lotWithSpot = lots.objectsWhere("spots > 0")
         
         
-        var query = PFQuery(className:"myLotParse")
+        var query = PFQuery(className:"MyLotParse")
         query.whereKey("spots", greaterThan: 0)
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
@@ -42,7 +42,8 @@ class BuySpotViewController: UIViewController {
                     let longitude = object["longitude"] as Double
                     let price = object["price"] as String
                     let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars") // 3
+                    let id = object.objectId
+                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id) // 3
                     self.mapView.addAnnotation(lotAnnotation) // 4
                    
                 }
@@ -102,27 +103,25 @@ class BuySpotViewController: UIViewController {
     
     func buttonClicked(sender: UIButton!) {
         
-       /* let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
-        
        
 
         
         // Get info about currently selected annotation
        let ann = self.mapView.selectedAnnotations[0] as LotAnnotation
         // Find objects
-        //var localTypes = Lot.objectsWhere("id = 6879")
-        var lots = Lot.allObjectsInRealm(realm)
+
         
-        let resultPredicate = NSPredicate(format: "id = %i", ann.id)
-        
-        var lotWithID = lots.objectsWithPredicate(resultPredicate)
-        
-        realm.beginWriteTransaction()
-        var existingForm = lotWithID[0] as Lot
-        existingForm.spots = existingForm.spots-1
-        // Wrap up transaction
-        realm.commitWriteTransaction()
-*/
+        var query = PFQuery(className:"MyLotParse")
+        query.getObjectInBackgroundWithId(ann.id) {
+            (myLotParse: PFObject!, error: NSError!) -> Void in
+            if error != nil {
+                NSLog("%@", error)
+            }
+            else {
+                myLotParse.incrementKey("spots", byAmount: -1)
+                myLotParse.saveInBackground()
+            }
+        }
 
         performSegueWithIdentifier("buySpot", sender: sender)
         
