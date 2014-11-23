@@ -12,7 +12,7 @@ import Realm
 
 
 
-class AddLotViewController: UIViewController {
+class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
     
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var price: UITextField!
@@ -61,6 +61,10 @@ class AddLotViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var logInController = PFLogInViewController()
+        logInController.delegate = self
+        self.presentViewController(logInController, animated:true, completion: nil)
         // Do any additional setup after loading the view.
         //colorLabel.text = latitude
         println(self.latitude)
