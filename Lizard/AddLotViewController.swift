@@ -38,12 +38,14 @@ class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
         realm.addObject(myLot)
         realm.commitWriteTransaction()*/
         
-        
+        var user = PFUser.currentUser()
+        println(user.username)
         var myLotParse = PFObject(className: "MyLotParse")
         myLotParse.setObject(self.latitude, forKey: "latitude")
         myLotParse.setObject(self.longitude, forKey: "longitude")
         myLotParse.setObject(1, forKey: "spots")
         myLotParse.setObject(self.price.text, forKey: "price")
+        myLotParse.setObject(user.username, forKey: "user")
         myLotParse.saveInBackgroundWithBlock {
             (success: Bool!, error: NSError!) -> Void in
             if true {
@@ -57,6 +59,8 @@ class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
     
     var latitude:Double!
     var longitude:Double!
+    
+   
  
   
     override func viewDidLoad() {
