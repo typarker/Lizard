@@ -21,7 +21,20 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
     var coordToPass = CLLocationCoordinate2D(
         latitude: 0,
         longitude: 0
-    )
+        )
+    
+    
+    //Dismiss Login View Controller after Login
+    
+    func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +45,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         logInController.delegate = self
         self.presentViewController(logInController, animated:true, completion: nil)
         
-        
+     
         
         //Set inital map location and span
         var location = CLLocationCoordinate2D(
