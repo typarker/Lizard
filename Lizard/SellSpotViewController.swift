@@ -28,6 +28,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
     
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
+        populateMap()
     }
     
     func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
@@ -58,7 +59,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         
         mapView.setRegion(region, animated: true)
    
-        populateMap()
+        
         
         //long press
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
