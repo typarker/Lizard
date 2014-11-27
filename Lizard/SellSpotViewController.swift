@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 
 
-class SellSpotViewController: UIViewController, MKMapViewDelegate{
+class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewControllerDelegate {
 
     @IBOutlet var DropPin: SellSpot!
     //@IBOutlet var textbox : UITextField!
@@ -26,6 +26,15 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         super.viewDidLoad()
         
         
+        //Parse Login
+        
+        var logInController = PFLogInViewController()
+        logInController.delegate = self
+        self.presentViewController(logInController, animated:true, completion: nil)
+        
+        
+        
+        //Set inital map location and span
         var location = CLLocationCoordinate2D(
             latitude: 29.6520,
             longitude: -82.35
@@ -36,8 +45,9 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         
         mapView.setRegion(region, animated: true)
    
-       populateMap()
+        populateMap()
         
+        //long press
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
         
         lpgr.minimumPressDuration = 0.5;
@@ -173,19 +183,6 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
                 NSLog("Error: %@ %@", error, error.userInfo!)
             }
         }
-        
-        //println(lots)
-        // Create annotations for each one
-        /*for lot in lotWithSpot {
-        let aLot = lot as Lot
-        let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
-        let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.price), subtitle: "Dollars", lot: aLot, id: aLot.id) // 3
-        mapView.addAnnotation(lotAnnotation) // 4
-        
-        }
-        
-        println(lotWithSpot)
-        */
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

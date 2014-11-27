@@ -65,9 +65,7 @@ class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var logInController = PFLogInViewController()
-        logInController.delegate = self
-        self.presentViewController(logInController, animated:true, completion: nil)
+ 
         // Do any additional setup after loading the view.
         //colorLabel.text = latitude
         println(self.latitude)
