@@ -25,6 +25,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         var location = CLLocationCoordinate2D(
             latitude: 29.6520,
             longitude: -82.35
@@ -35,7 +36,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         
         mapView.setRegion(region, animated: true)
    
-       
+       populateMap()
         
         var lpgr = UILongPressGestureRecognizer(target: self, action: "action:")
         
@@ -47,6 +48,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
        
 
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "goToAddLot"{
@@ -139,6 +142,51 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate{
         
     }
     
+    
+    //add annotations to map
+    func populateMap(){
+        mapView.removeAnnotations(mapView.annotations) // 1
+  
+        var user = PFUser.currentUser()
+        
+        var query = PFQuery(className:"MyLotParse")
+        query.whereKey("user", equalTo: user.username)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                // The find succeeded.
+                NSLog("Successfully retrieved \(objects.count) spots.")
+                // Do something with the found objects
+                for object in objects {
+                    NSLog("%@", object.objectId)
+                    let latitude = object["latitude"] as Double
+                    let longitude = object["longitude"] as Double
+                    let price = object["price"] as String
+                    let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    let id = object.objectId
+                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id) // 3
+                    self.mapView.addAnnotation(lotAnnotation) // 4
+                    
+                }
+            } else {
+                // Log details of the failure
+                NSLog("Error: %@ %@", error, error.userInfo!)
+            }
+        }
+        
+        //println(lots)
+        // Create annotations for each one
+        /*for lot in lotWithSpot {
+        let aLot = lot as Lot
+        let coord = CLLocationCoordinate2D(latitude: aLot.latitude, longitude: aLot.longitude);
+        let lotAnnotation = LotAnnotation(coordinate: coord, title: String(aLot.price), subtitle: "Dollars", lot: aLot, id: aLot.id) // 3
+        mapView.addAnnotation(lotAnnotation) // 4
+        
+        }
+        
+        println(lotWithSpot)
+        */
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -39,7 +39,6 @@ class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
         realm.commitWriteTransaction()*/
         
         var user = PFUser.currentUser()
-        println(user.username)
         var myLotParse = PFObject(className: "MyLotParse")
         myLotParse.setObject(self.latitude, forKey: "latitude")
         myLotParse.setObject(self.longitude, forKey: "longitude")
