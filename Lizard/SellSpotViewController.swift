@@ -42,9 +42,19 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         
         //Parse Login
         
-        var logInController = PFLogInViewController()
+        var currentUser = PFUser.currentUser()
+        if currentUser != nil {   // is user already signed in
+            // Do stuff with the user
+            
+        } else {
+            // Show the signup or login screen
+          var logInController = PFLogInViewController()
         logInController.delegate = self
-        self.presentViewController(logInController, animated:true, completion: nil)
+        self.presentViewController(logInController, animated:true, completion: nil)  
+            
+        }
+        
+        
         
      
         

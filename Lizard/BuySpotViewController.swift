@@ -21,6 +21,8 @@ class BuySpotViewController: UIViewController {
     //let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
     
     
+    
+    
     //add annotations to map
     func populateMap(){
         mapView.removeAnnotations(mapView.annotations) // 1
@@ -122,7 +124,7 @@ class BuySpotViewController: UIViewController {
                 myLotParse.saveInBackground()
             }
         }
-
+        populateMap() //Reloads the map view before opening Thank You page
         performSegueWithIdentifier("buySpot", sender: sender)
         
     }
