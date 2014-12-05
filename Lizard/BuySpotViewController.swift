@@ -18,14 +18,14 @@ class BuySpotViewController: UIViewController {
     
     
     //set Realm
-    let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
+    //let realm = RLMRealm(path:"/Users/typarker/Desktop/Lizard/Lots.realm")
     
     
     //add annotations to map
     func populateMap(){
         mapView.removeAnnotations(mapView.annotations) // 1
-        let lots = Lot.allObjectsInRealm(realm)
-        var lotWithSpot = lots.objectsWhere("spots > 0")
+        //let lots = Lot.allObjectsInRealm(realm)
+        //var lotWithSpot = lots.objectsWhere("spots > 0")
         
         
         var query = PFQuery(className:"MyLotParse")
