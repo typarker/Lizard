@@ -19,6 +19,8 @@
 		A00C6E2C1A054940001CDD93 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00C6E2B1A054940001CDD93 /* CoreLocation.framework */; };
 		A00C6E611A05BE53001CDD93 /* SellSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C6E601A05BE53001CDD93 /* SellSpotViewController.swift */; };
 		A00C6E671A05CCA2001CDD93 /* SellSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00C6E661A05CCA2001CDD93 /* SellSpot.swift */; };
+		A02958171A505E5600203BB9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A02958161A505E5600203BB9 /* icon.png */; };
+		A029581D1A529EDF00203BB9 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A029581C1A529EDF00203BB9 /* FirstViewController.swift */; };
 		A04E8E4A1A0C7085002BE0B2 /* redPin.png in Resources */ = {isa = PBXBuildFile; fileRef = A04E8E491A0C7085002BE0B2 /* redPin.png */; };
 		A04E8E4E1A0E71AB002BE0B2 /* AddLotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */; };
 		A04E8E501A0EC4F1002BE0B2 /* LotList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04E8E4F1A0EC4F1002BE0B2 /* LotList.swift */; };
@@ -41,7 +43,6 @@
 		A06B8A5B1A228419003F3073 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A06B8A5A1A228419003F3073 /* Accounts.framework */; };
 		A0F349441A0B26AC00404C63 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349431A0B26AC00404C63 /* Realm.framework */; };
 		A0F349461A0B26EE00404C63 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F349451A0B26EE00404C63 /* libc++.dylib */; };
-		A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F349471A0B270200404C63 /* RLMSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		A00C6E2B1A054940001CDD93 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A00C6E601A05BE53001CDD93 /* SellSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellSpotViewController.swift; sourceTree = "<group>"; };
 		A00C6E661A05CCA2001CDD93 /* SellSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SellSpot.swift; path = ../SellSpot.swift; sourceTree = "<group>"; };
+		A02958161A505E5600203BB9 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A029581C1A529EDF00203BB9 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		A04E8E491A0C7085002BE0B2 /* redPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redPin.png; sourceTree = SOURCE_ROOT; };
 		A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLotViewController.swift; sourceTree = "<group>"; };
 		A04E8E4F1A0EC4F1002BE0B2 /* LotList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotList.swift; sourceTree = "<group>"; };
@@ -94,7 +97,6 @@
 		A06B8A5A1A228419003F3073 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A0F349431A0B26AC00404C63 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A0F349451A0B26EE00404C63 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		A0F349471A0B270200404C63 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RLMSupport.swift; path = "../../realm-cocoa-0.87.2/Swift/RLMSupport.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,10 +163,11 @@
 				A04E8E491A0C7085002BE0B2 /* redPin.png */,
 				A00C6E661A05CCA2001CDD93 /* SellSpot.swift */,
 				A05E57881A1C2E4D0065F166 /* Lizard-Bridging-Header.h */,
-				A0F349471A0B270200404C63 /* RLMSupport.swift */,
 				A00C6E091A0474BC001CDD93 /* MasterViewController.swift */,
 				A00C6E0B1A0474BC001CDD93 /* DetailViewController.swift */,
+				A02958161A505E5600203BB9 /* icon.png */,
 				A00C6E0D1A0474BC001CDD93 /* Main.storyboard */,
+				A029581C1A529EDF00203BB9 /* FirstViewController.swift */,
 				A04E8E551A0ED12D002BE0B2 /* BuySpotViewController.swift */,
 				A04E8E4D1A0E71AB002BE0B2 /* AddLotViewController.swift */,
 				A04E8E4F1A0EC4F1002BE0B2 /* LotList.swift */,
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00C6E0F1A0474BC001CDD93 /* Main.storyboard in Resources */,
+				A02958171A505E5600203BB9 /* icon.png in Resources */,
 				A00C6E141A0474BC001CDD93 /* LaunchScreen.xib in Resources */,
 				A00C6E111A0474BC001CDD93 /* Images.xcassets in Resources */,
 				A04E8E4A1A0C7085002BE0B2 /* redPin.png in Resources */,
@@ -337,7 +341,7 @@
 			files = (
 				A00C6E051A0474BC001CDD93 /* AppDelegate.swift in Sources */,
 				A00C6E081A0474BC001CDD93 /* Lizard.xcdatamodeld in Sources */,
-				A0F349481A0B270200404C63 /* RLMSupport.swift in Sources */,
+				A029581D1A529EDF00203BB9 /* FirstViewController.swift in Sources */,
 				A04E8E561A0ED12D002BE0B2 /* BuySpotViewController.swift in Sources */,
 				A04E8E581A0F9E95002BE0B2 /* LotAnnotation.swift in Sources */,
 				A00C6E0A1A0474BC001CDD93 /* MasterViewController.swift in Sources */,
