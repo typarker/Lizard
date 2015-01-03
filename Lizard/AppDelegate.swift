@@ -19,7 +19,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("Tuw3w4dCezCqsOUt5SctfNuLW1T5FoxWoZoPJoaL", clientKey: "LyIgRe9qSdUadkny0zcmYMDQbCi4IJ2m7QEYksaX")
+        
+        // Push
+        var types: UIUserNotificationType = UIUserNotificationType.Badge |
+            UIUserNotificationType.Alert |
+            UIUserNotificationType.Sound
+        
+        var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: nil )
+        
+        application.registerUserNotificationSettings( settings )
+        application.registerForRemoteNotifications()
+        
+        
+        
         return true
+    }
+    
+    //something from github
+    
+    func application( application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData! ) {
+        
+        // <>と" "(空白)を取る
+        /*var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
+        
+        var deviceTokenString: String = ( deviceToken.description as NSString )
+        .stringByTrimmingCharactersInSet( characterSet )
+        .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
+        
+        println( deviceTokenString )*/
+        
+        //Store the deviceToken in the current installation and save it to Parse.
+        
+        let currentInstallation: PFInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackground()
+        
+        
+    }
+    
+    //something else from github
+    
+    func application( application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError! ) {
+        
+        println( error.localizedDescription )
     }
 
     func applicationWillResignActive(application: UIApplication) {
