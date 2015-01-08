@@ -30,6 +30,12 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
         populateMap()
+        
+        //matching user to device
+        let currentInstallation: PFInstallation = PFInstallation.currentInstallation()
+        var user = PFUser.currentUser()
+        currentInstallation.setObject(user, forKey: "user")
+        currentInstallation.saveInBackground()
     }
     
     func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
@@ -44,12 +50,14 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         
         
         //Parse Login
-       
+        
+        
+        
         
         var currentUser = PFUser.currentUser()
         if currentUser != nil {   // is user already signed in
             // Do stuff with the user
-            
+            populateMap()
         } else {
             // Show the signup or login screen
           var logInController = PFLogInViewController()
@@ -57,8 +65,9 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         logInController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.SignUpButton | PFLogInFields.LogInButton | PFLogInFields.PasswordForgotten | PFLogInFields.DismissButton
         self.presentViewController(logInController, animated:true, completion: nil)
             
+           
+            
         }
-        
         
         
      
