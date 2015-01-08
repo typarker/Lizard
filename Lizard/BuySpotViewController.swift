@@ -120,8 +120,38 @@ class BuySpotViewController: UIViewController {
                 NSLog("%@", error)
             }
             else {
+                
+                //send push to seller
+                let message: NSString = "Some Dude Bought Your Spot"
+                
+                var data = [ "title": "Some Title",
+                    "alert": message]
+                
+                var username = myLotParse.objectForKey("user") as? String
+                println(username)
+                var userQuery = PFQuery(className:"User")
+                userQuery.whereKey("username" , equalTo: username)
+                var userObject = userQuery.getFirstObject()
+                var userId = userObject.objectForKey("objectId") as? String
+                var installQuery = PFQuery(className: "Installation")
+                installQuery.whereKey("user" , equalTo: userId)
+                var installation = installQuery.getFirstObject()
+                var installId = installation.objectForKey("installationId") as? String
+                
+                var push: PFPush = PFPush()
+                push.setQuery(installQuery)
+                push.setData(data)
+                push.sendPushInBackground()
+                
+                
+                
+                //var query: PFQuery = PFInstallation.query()
+                
+                //remove a spot
                 myLotParse.incrementKey("spots", byAmount: -1)
                 myLotParse.saveInBackground()
+                
+                
             }
         }
         populateMap() //Reloads the map view before opening Thank You page
