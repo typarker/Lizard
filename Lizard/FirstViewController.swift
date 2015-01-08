@@ -13,6 +13,8 @@ class FirstViewController: UIViewController {
     
     @IBOutlet var button: UIButton!
 
+    @IBAction func startAgain(segue: UIStoryboardSegue) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

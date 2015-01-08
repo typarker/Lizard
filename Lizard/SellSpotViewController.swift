@@ -24,6 +24,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         )
     
     
+    
     //Dismiss Login View Controller after Login
     
     func logInViewController(controller: PFLogInViewController, didLogInUser user: PFUser) -> Void {
@@ -33,6 +34,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
     
     func logInViewControllerDidCancelLogIn(controller: PFLogInViewController) -> Void {
         self.dismissViewControllerAnimated(true, completion: nil)
+        performSegueWithIdentifier("startAgainID", sender: self)
+        
     }
     
     
@@ -41,6 +44,7 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
         
         
         //Parse Login
+       
         
         var currentUser = PFUser.currentUser()
         if currentUser != nil {   // is user already signed in
@@ -50,7 +54,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
             // Show the signup or login screen
           var logInController = PFLogInViewController()
         logInController.delegate = self
-        self.presentViewController(logInController, animated:true, completion: nil)  
+        logInController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.SignUpButton | PFLogInFields.LogInButton | PFLogInFields.PasswordForgotten | PFLogInFields.DismissButton
+        self.presentViewController(logInController, animated:true, completion: nil)
             
         }
         

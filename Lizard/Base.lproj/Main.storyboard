@@ -35,7 +35,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LRF-Q7-Cxh" kind="show" id="JFD-dL-VHP"/>
+                                    <segue destination="LRF-Q7-Cxh" kind="show" identifier="sellSpot" id="JFD-dL-VHP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vJ-Of-XJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785.5" y="833.5"/>
+            <point key="canvasLocation" x="1737.5" y="841.5"/>
         </scene>
         <!--Buy Spot-->
         <scene sceneID="YXk-wn-UCT">
@@ -165,9 +165,11 @@
                     <connections>
                         <outlet property="DropPin" destination="AHi-Im-h6K" id="rIB-JH-uh1"/>
                         <outlet property="mapView" destination="SDb-6G-wU5" id="V7i-TU-bHk"/>
+                        <segue destination="0kM-WA-3FM" kind="unwind" identifier="startAgainID" unwindAction="startAgain:" id="1BU-Qp-Y11"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWm-MQ-qZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0kM-WA-3FM" userLabel="Exit" sceneMemberID="exit"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="AHi-Im-h6K" customClass="SellSpot" customModule="Lizard" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2808.5" y="1236.5"/>
@@ -273,7 +275,7 @@
                     <navigationItem key="navigationItem" title="Title" id="WNf-xf-POu">
                         <barButtonItem key="leftBarButtonItem" title="Map" id="9gL-WM-eLQ">
                             <connections>
-                                <segue destination="hVZ-nJ-EZe" kind="show" id="HF6-33-MMa"/>
+                                <segue destination="hVZ-nJ-EZe" kind="show" identifier="" id="HF6-33-MMa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
