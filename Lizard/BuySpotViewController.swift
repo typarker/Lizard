@@ -43,9 +43,10 @@ class BuySpotViewController: UIViewController {
                     let latitude = object["latitude"] as Double
                     let longitude = object["longitude"] as Double
                     let price = object["price"] as String
+                    let owner = object["owner"] as PFUser?
                     let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                     let id = object.objectId
-                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id) // 3
+                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id, owner: owner!) // 3
                     self.mapView.addAnnotation(lotAnnotation) // 4
                    
                 }
@@ -126,17 +127,18 @@ class BuySpotViewController: UIViewController {
                 
                 var data = [ "title": "Some Title",
                     "alert": message]
+                let owner = ann.owner
                 
-                var username = myLotParse.objectForKey("user") as? String
-                println(username)
-                var userQuery = PFQuery(className:"User")
-                userQuery.whereKey("username" , equalTo: username)
-                var userObject = userQuery.getFirstObject()
-                var userId = userObject.objectForKey("objectId") as? String
+//                var username = myLotParse.objectForKey("user") as? String
+//                println(username)
+//                var userQuery = PFQuery(className:"User")
+//                userQuery.whereKey("username" , equalTo: username)
+//                var userObject = userQuery.getFirstObject()
+//                var userId = userObject.objectForKey("objectId") as? String
                 var installQuery = PFQuery(className: "Installation")
-                installQuery.whereKey("user" , equalTo: userId)
-                var installation = installQuery.getFirstObject()
-                var installId = installation.objectForKey("installationId") as? String
+                installQuery.whereKey("user" , equalTo: owner)
+                //var installation = installQuery.getFirstObject()
+                //var installId = installation.objectForKey("installationId") as? String
                 
                 var push: PFPush = PFPush()
                 push.setQuery(installQuery)

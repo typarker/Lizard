@@ -45,6 +45,7 @@ class AddLotViewController: UIViewController, PFLogInViewControllerDelegate  {
         myLotParse.setObject(1, forKey: "spots")
         myLotParse.setObject(self.price.text, forKey: "price")
         myLotParse.setObject(user.username, forKey: "user")
+        myLotParse.setObject(user, forKey: "owner")
         myLotParse.saveInBackgroundWithBlock {
             (success: Bool!, error: NSError!) -> Void in
             if true {

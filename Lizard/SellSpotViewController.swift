@@ -212,7 +212,8 @@ class SellSpotViewController: UIViewController, MKMapViewDelegate, PFLogInViewCo
                     let price = object["price"] as String
                     let coord = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                     let id = object.objectId
-                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id) // 3
+                    let owner = object["owner"] as PFUser?
+                    let lotAnnotation = LotAnnotation(coordinate: coord, title: price, subtitle: "Dollars", id: id, owner: owner!) // 3
                     self.mapView.addAnnotation(lotAnnotation) // 4
                     
                 }
